@@ -1,0 +1,21 @@
+.container-fluid {
+    padding: 20px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .card-body {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .btn-secondary {
+    width: 100%;
+  }
+  
