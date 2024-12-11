@@ -1,0 +1,10 @@
+.container {
+    max-width: 600px;
+  }
+  h2 {
+    color: #007bff;
+  }
+  .text-danger {
+    font-size: 0.85rem;
+  }
+  
