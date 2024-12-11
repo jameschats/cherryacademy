@@ -60,10 +60,10 @@ namespace ca.api.Controllers
             }
 
             model.Email = model.Email.ToLower();
-
+            Console.WriteLine("1");
             if (await UserExists(model.Email))
                 throw new Exception("Email already exists");
-
+            Console.WriteLine("2");
             // byte[] passwordHash, passwordSalt;
             // CreatePasswordHash(model.Password, out passwordHash, out passwordSalt);
 
@@ -173,10 +173,12 @@ namespace ca.api.Controllers
         {
 
             login.Email = login.Email.ToLower();
+            Console.WriteLine("1");
 
             if (!await UserExists(login.Email))
                 throw new Exception("Email doesn't exists");
 
+            Console.WriteLine("2");
             var userFromRepo = await VerifyLogin(login.Email.ToLower(), login.Password);
 
             if (userFromRepo == null)

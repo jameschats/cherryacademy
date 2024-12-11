@@ -33,12 +33,3 @@ export class HomeComponent {
     }
   ];
 }
-
-// export class HomeComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }

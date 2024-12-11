@@ -4,14 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Users } from '../../models/user';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true, // Mark as standalone
-  imports: [CommonModule, FormsModule,HttpClientModule], // Import FormsModule here
+  imports: [CommonModule, FormsModule], // Import FormsModule here
 })
 export class LoginComponent {
   courses = [
@@ -46,20 +45,14 @@ export class LoginComponent {
       this.authservices.login(usermodel).subscribe({
         next: (value: any) => {
           localStorage.setItem('token', value.accessToken);
-          this.router.navigate(['/home']);
-          // this.syncLocalCartToServer();
-          // this.route.queryParams.subscribe(params => {
-          //   const returnUrl = params['returnUrl'] || '/';
-          //   this.router.navigate([returnUrl]);            
-          // });
-  
-          // this.router.navigate(['/']);
+          this.router.navigate(['/home']);         
   
           console.log(value);
         },
         error: (error: any) => {
           //this.toaster.error(error.error)
           console.error('Login error', error);
+          alert('Incorrect username or password');
   
         }
       })
@@ -70,29 +63,8 @@ export class LoginComponent {
   }
 
   register() {
-    // Add validation or authentication logic here
-    // if (this.email && this.password) {
-    //   // Navigate to the HomeComponent route
+    // Add validation or authentication logic here    
       this.router.navigate(['/register']);
-    // } else {
-    //   alert('Please enter your email and password');
-    // }
+   
   }
 }
-
-
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
